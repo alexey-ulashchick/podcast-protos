@@ -15,10 +15,10 @@ jobs:
       - name: Building Protos
         run: ./gradlew build
 
-      - name: Publishing JAR
+      - name: Bintray Upload
         env:
           JFROG_USER: ${{ secrets.JFROG_USER }}
           JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
         run: |
-          ./gradlew publish
+          ./gradlew bintrayUpload
 
