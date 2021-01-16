@@ -67,7 +67,7 @@ protobuf {
 repositories {
 	jcenter()
 	maven {
-		+url "https://dl.bintray.com/alexey-ulashchick/dashboard"
+		url = uri("https://dl.bintray.com/alexey-ulashchick/dashboard")
 		credentials {
 			username = "alexey-ulashchick"
 			password = System.getenv("JFROG_API_KEY")
