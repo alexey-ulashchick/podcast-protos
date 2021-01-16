@@ -2,7 +2,7 @@ plugins {
 	id "com.google.protobuf" version "0.8.10"
 	id "java"
 	id "maven-publish"
-	id "com.jfrog.artifactory" version "4.18.3"
+	id "com.jfrog.bintray" version "1.7"
 }
 
 group = 'com.ulashchick.dashboard'
@@ -12,6 +12,14 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	jcenter()
+//	maven {
+//		url = uri("https://dl.bintray.com/alexey-ulashchick/dashboard")
+//		credentials {
+//			username = "alexey-ulashchick"
+//			password = System.getenv("JFROG_API_KEY")
+//		}
+//	}
 }
 
 dependencies {
@@ -63,14 +71,27 @@ protobuf {
 //	}
 //}
 
+bintray {
+	user = System.getenv("JFROG_USER")
+	key = System.getenv("JFROG_API_KEY")
+	pkg {
+		repo = 'maven'
+		name = 'dashboard-protos'
+		licenses = ['Apache-2.0']
+		vcsUrl = 'https://github.com/alexey-ulashchick/dashboard-protos.git'
+		version {
+			name = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
+		}
+	}
+}
 
-repositories {
-	jcenter()
-	maven {
-		url = uri("https://dl.bintray.com/alexey-ulashchick/dashboard")
-		credentials {
-			username = "alexey-ulashchick"
-			password = System.getenv("JFROG_API_KEY")
+publishing {
+	publications {
+		MyPublication(MavenPublication) {
+			artifactId = 'protos'
+			groupId = 'com.ulashchick.dashboard'
+			version = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
+			from components.java
 		}
 	}
 }

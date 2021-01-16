@@ -17,7 +17,8 @@ jobs:
 
       - name: Publishing JAR
         env:
-          JFROG_API_KEY: ${{ secrets.JFROG }}
+          JFROG_USER: ${{ secrets.JFROG_USER }}
+          JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
         run: |
           ./gradlew publish
 
