@@ -1,25 +1,22 @@
 plugins {
-	id "com.google.protobuf" version "0.8.10"
-	id "java"
-	id "maven-publish"
-	id "com.jfrog.bintray" version "1.7"
+	id 'com.google.protobuf' version '0.8.10'
+	id 'com.jfrog.bintray' version '1.8.1'
+	id 'java'
+	id 'maven-publish'
 }
 
-group = 'com.ulashchick.dashboard'
-version = '1.0-SNAPSHOT'
+def majorVersion = '1'
+def minorVersion = '0'
+def patchVersion = System.getenv("GITHUB_RUN_NUMBER") ?: '0'
 
+group = 'com.ulashchick.dashboard'
+version = majorVersion + '.' + minorVersion + '.' + patchVersion
 sourceCompatibility = 1.8
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 	jcenter()
-//	maven {
-//		url = uri("https://dl.bintray.com/alexey-ulashchick/dashboard")
-//		credentials {
-//			username = "alexey-ulashchick"
-//			password = System.getenv("JFROG_API_KEY")
-//		}
-//	}
 }
 
 dependencies {
@@ -30,19 +27,18 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/io.grpc/grpc-all
 	compile group: 'io.grpc', name: 'grpc-all', version: '1.25.0'
+
 }
 
 protobuf {
 	protoc {
 		artifact = 'com.google.protobuf:protoc:3.10.1'
 	}
-
 	plugins {
 		grpc {
 			artifact = 'io.grpc:protoc-gen-grpc-java:1.25.0'
 		}
 	}
-
 	generateProtoTasks {
 		all()*.plugins {
 			grpc {}
@@ -50,49 +46,52 @@ protobuf {
 	}
 }
 
-//publishing {
-//	repositories {
-//		maven {
-//			name = "GitHubPackages"
-//			url = uri("https://maven.pkg.github.com/alexey-ulashchick/dashboard-protos")
-//			credentials {
-//				username = System.getenv("GITHUB_ACTOR")
-//				password = System.getenv("GITHUB_TOKEN")
-//			}
-//		}
-//	}
-//	publications {
-//		gpr(MavenPublication) {
-//			artifactId = 'protos'
-//			groupId = 'com.ulashchick.dashboard'
-//			version = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
-//			from(components.java)
-//		}
-//	}
-//}
-
-bintray {
-	user = System.getenv("JFROG_USER")
-	key = System.getenv("JFROG_API_KEY")
-	publications = ['MyPublication']
-	pkg {
-		repo = 'dashboard'
-		name = 'dashboard-protos'
-		licenses = ['Apache-2.0']
-		vcsUrl = 'https://github.com/alexey-ulashchick/dashboard-protos.git'
-		version {
-			name = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
+def pomConfig = {
+	licenses {
+		license {
+			name 'MIT'
+			url 'http://www.opensource.org/licenses/mit-license.php'
+			distribution 'repo'
 		}
+	}
+	developers {
+		developer {
+			id 'alexey-ulashchick'
+			name 'Alexey Ulashchick'
+			email 'a.ulashchick@gmail.com'
+		}
+	}
+	scm {
+		url 'https://github.com/alexey-ulashchick/dashboard-protos'
 	}
 }
 
 publishing {
 	publications {
-		MyPublication(MavenPublication) {
-			artifactId = 'protos'
-			groupId = 'com.ulashchick.dashboard'
-			version = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
+		mavenPublication(MavenPublication) {
 			from components.java
+			groupId 'com.ulashchick.dashboard'
+			artifactId 'protos'
+			version = majorVersion + '.' + minorVersion + '.' + patchVersion
+			pom.withXml {
+				def root = asNode()
+				root.appendNode('description', 'Protos library for Dashboard Project')
+				root.appendNode('name', 'dashboard-protos')
+				root.appendNode('url', 'https://github.com/alexey-ulashchick/dashboard-protos')
+				root.children().last() + pomConfig
+			}
 		}
+	}
+}
+
+bintray {
+	user = System.getenv('JFROG_USER')
+	key = System.getenv('JFROG_API_KEY')
+	publications = ['mavenPublication']
+	pkg {
+		repo = 'maven'
+		name = 'dashboard-protos'
+		licenses = ['MIT']
+		vcsUrl = 'https://github.com/alexey-ulashchick/dashboard-protos.git'
 	}
 }
