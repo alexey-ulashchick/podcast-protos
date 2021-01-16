@@ -1,6 +1,7 @@
 plugins {
 	id "com.google.protobuf" version "0.8.10"
 	id "java"
+	id "maven-publish"
 }
 
 group 'com.dashboard'
@@ -36,6 +37,24 @@ protobuf {
 	generateProtoTasks {
 		all()*.plugins {
 			grpc {}
+		}
+	}
+}
+
+publishing {
+	repositories {
+		maven {
+			name = "GitHubPackages"
+			url = uri("https://maven.pkg.github.com/alexey-ulashchick/dashboard-protos")
+			credentials {
+				username = System.getenv("GITHUB_ACTOR")
+				password = System.getenv("GITHUB_TOKEN")
+			}
+		}
+	}
+	publications {
+		gpr(MavenPublication) {
+			from(components.java)
 		}
 	}
 }
