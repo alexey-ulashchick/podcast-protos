@@ -4,8 +4,10 @@ plugins {
 	id "maven-publish"
 }
 
-group 'com.dashboard'
-version '1.0-SNAPSHOT'
+def buildNumber = System.getenv("GITHUB_RUN_ID") ?: "0"
+
+group = 'com.dashboard'
+version = '1.0.' + buildNumber
 
 sourceCompatibility = 1.8
 
