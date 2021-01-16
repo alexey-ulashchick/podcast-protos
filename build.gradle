@@ -74,6 +74,7 @@ protobuf {
 bintray {
 	user = System.getenv("JFROG_USER")
 	key = System.getenv("JFROG_API_KEY")
+	publications = ['MyPublication']
 	pkg {
 		repo = 'maven'
 		name = 'dashboard-protos'
