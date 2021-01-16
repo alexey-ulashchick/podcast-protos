@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: make
-        run: docker run -v `pwd`:/defs namely/protoc-all -d . -l java
+      - name: Building Protos
+        run: ./gradlew build
