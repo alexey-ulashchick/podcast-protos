@@ -4,10 +4,8 @@ plugins {
 	id "maven-publish"
 }
 
-def buildNumber = System.getenv("GITHUB_RUN_NUMBER") ?: "0"
-
 group = 'com.ulashchick.dashboard'
-version = '1.0.' + buildNumber
+version = '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -56,7 +54,9 @@ publishing {
 	}
 	publications {
 		gpr(MavenPublication) {
-			artifactId 'protos'
+			artifactId = 'protos'
+			groupId = 'com.ulashchick.dashboard'
+			version = '1.0.' + System.getenv("GITHUB_RUN_NUMBER")
 			from(components.java)
 		}
 	}
