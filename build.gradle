@@ -4,7 +4,7 @@ plugins {
 	id "maven-publish"
 }
 
-def buildNumber = System.getenv("GITHUB_RUN_ID") ?: "0"
+def buildNumber = System.getenv("GITHUB_RUN_NUMBER") ?: "0"
 
 group = 'com.dashboard'
 version = '1.0.' + buildNumber
