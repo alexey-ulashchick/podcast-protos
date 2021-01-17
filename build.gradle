@@ -13,15 +13,21 @@ group = 'com.ulashchick.dashboard'
 version = majorVersion + '.' + minorVersion + '.' + patchVersion
 sourceCompatibility = 1.8
 
+sourceSets {
+	main {
+		proto {
+			srcDir 'protos'
+		}
+	}
+}
+
 repositories {
-	mavenLocal()
+//	mavenLocal()
 	mavenCentral()
 	jcenter()
 }
 
 dependencies {
-	testCompile group: 'junit', name: 'junit', version: '4.12'
-
 	// https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
 	compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.10.0'
 
