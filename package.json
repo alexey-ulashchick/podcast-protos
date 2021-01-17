@@ -1,0 +1,22 @@
+{
+  "name": "dashboard-protos",
+  "version": "1.5.2",
+  "description": "Protos repository for dashboard project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexey-ulashchick/dashboard-protos.git"
+  },
+  "author": "Alexey Ulashchick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexey-ulashchick/dashboard-protos/issues"
+  },
+  "homepage": "https://github.com/alexey-ulashchick/dashboard-protos#readme",
+  "devDependencies": {
+    "ts-protoc-gen": "^0.14.0"
+  }
+}
