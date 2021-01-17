@@ -29,6 +29,6 @@ jobs:
 
       - name: Setup PROTOC compiler
         uses: abelfodil/protoc-action@v1
-          with:
-            protoc-version: '3.13.0'
+        with:
+          protoc-version: '3.13.0'
 
