@@ -6,9 +6,9 @@ option java_multiple_files = true;
 /** Service for standard user registration and authentication based on JWT. */
 service AuthService {
 
-  rpc registerUser(RegisterUserRequest) returns RegisterUserResponse {}
+  rpc registerUser(RegisterUserRequest) returns (RegisterUserResponse) {}
 
-  rpc validateUser(ValidateUserRequest) returns ValidateUserResponse {}
+  rpc validateUser(ValidateUserRequest) returns (ValidateUserResponse) {}
 
 }
 
