@@ -66,9 +66,8 @@ jobs:
 
       - name: Publish
         working-directory: ./env-nodejs
-        run: |
-          npm publish --access=public
-          cat /home/runner/.npm/_logs/*
+        run: npm publish --access=public --loglevel verbose
+
 
 
 
