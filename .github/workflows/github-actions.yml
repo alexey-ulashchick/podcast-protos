@@ -35,6 +35,6 @@ jobs:
       - name: 'Change version'
         run: |
           NPM_VERSION=1.0.$GITHUB_RUN_NUMBER
-          npm version $GITHUB_RUN_NUMBER --no-git-tag-version
+          npm version $NPM_VERSION --no-git-tag-version
           cat package.json
 
