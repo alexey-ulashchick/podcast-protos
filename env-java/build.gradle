@@ -106,6 +106,7 @@ bintray {
 	user = System.getenv('JFROG_USER')
 	key = System.getenv('JFROG_API_KEY')
 	publications = ['mavenPublication']
+	publish = true
 	pkg {
 		repo = 'maven'
 		name = 'dashboard-protos'
