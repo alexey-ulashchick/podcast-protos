@@ -32,3 +32,8 @@ jobs:
         with:
           protoc-version: '3.13.0'
 
+      - name: 'Change version'
+        uses: reedyuk/npm-version@vlatest
+        with:
+          version: '1.0.1'
+          package: 'subproject-directory/'
