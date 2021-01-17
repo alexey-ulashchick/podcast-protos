@@ -3,5 +3,7 @@
 
 !env-java/gradle/wrapper/gradle-wrapper.jar
 
+env-java/build
+
 env-nodejs/node_modules
 env-nodejs/protos
