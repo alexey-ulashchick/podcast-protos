@@ -66,9 +66,7 @@ jobs:
 
       - name: Publish
         working-directory: ./env-nodejs
-        run: |
-          cat /home/runner/work/_temp/.npmrc
-          npm publish --access=public --loglevel verbose
+        run: npm publish --access=public --loglevel verbose
 
 
 
