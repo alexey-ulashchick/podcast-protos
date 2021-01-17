@@ -16,7 +16,7 @@ sourceCompatibility = 1.8
 sourceSets {
 	main {
 		proto {
-			srcDir 'protos'
+			srcDir '../protos'
 		}
 	}
 }
