@@ -1,6 +1,6 @@
 .idea
 .gradle
 gen
-!java-env/gradle/wrapper/gradle-wrapper.jar
+!env-java/gradle/wrapper/gradle-wrapper.jar
 node_modules
 
