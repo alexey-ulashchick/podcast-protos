@@ -18,5 +18,8 @@
   "homepage": "https://github.com/alexey-ulashchick/dashboard-protos#readme",
   "devDependencies": {
     "ts-protoc-gen": "^0.14.0"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.14.0"
   }
 }
