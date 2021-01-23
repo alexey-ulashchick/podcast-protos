@@ -1,5 +1,7 @@
-name: build
-on: push
+- name: Manually triggered workflow
+  on: workflow_dispatch
+- name: build
+  on: push
 jobs:
   java-from-protos:
     runs-on: ubuntu-latest
