@@ -9,7 +9,7 @@ option java_outer_classname = "AuthServiceProto";
 /** Service for standard user registration and authentication based on JWT. */
 service AuthService {
 
-  rpc signIn(SignInUserRequest) returns (RegisterUserResponse) {}
+  rpc SignIn(SignInUserRequest) returns (SignInUserResponse) {}
 
 }
 
@@ -20,5 +20,8 @@ message SignInUserRequest {
   string image_url = 4;
 }
 
-message RegisterUserResponse {
+message SignInUserResponse {
+  string jwtToken = 5;
 }
+
+

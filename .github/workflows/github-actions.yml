@@ -63,7 +63,7 @@ jobs:
           protoc \
             --plugin="protoc-gen-ts=env-nodejs/node_modules/.bin/protoc-gen-ts" \
             --js_out="import_style=commonjs,binary:env-nodejs" \
-            --ts_out="env-nodejs" \
+            --ts_out="service=grpc-web:env-nodejs" \
             ./protos/**
 
       - name: Publish
