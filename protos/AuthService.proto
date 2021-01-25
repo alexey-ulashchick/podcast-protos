@@ -14,14 +14,11 @@ service AuthService {
 }
 
 message SignInUserRequest {
-  string email = 1;
-  string first_name = 2;
-  string last_name = 3;
-  string image_url = 4;
+  string id_token = 1;
 }
 
 message SignInUserResponse {
-  string jwtToken = 5;
+  string jwtToken = 1;
 }
 
 
