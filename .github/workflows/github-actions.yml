@@ -18,6 +18,15 @@ jobs:
         working-directory: ./env-java
         run: ./gradlew build
 
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v.1.0.${{ $GITHUB_RUN_NUMBER }}
+          draft: false
+          prerelease: false
+
       # - name: Bintray Upload
       #   working-directory: ./env-java
       #   env:
