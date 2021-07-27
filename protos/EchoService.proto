@@ -13,7 +13,6 @@ service EchoService {
 
 message EchoRequest {
   string message = 1;
-  string testField = 2;
 }
 
 message EchoResponse {

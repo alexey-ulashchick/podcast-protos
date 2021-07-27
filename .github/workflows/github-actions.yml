@@ -3,38 +3,22 @@ on:
   - push
   - workflow_dispatch
 jobs:
+
+  # We do not need to build protos here during action execution. We just add release tag which will be picked up later by https://jitpack.io.
   java-from-protos:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v2
 
-      # - name: Set up JDK 13
-      #   uses: actions/setup-java@v1
-      #   with:
-      #     java-version: 13
-
-      # - name: Building Protos
-      #   working-directory: ./env-java
-      #   run: ./gradlew build
-
       - name: Create Release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v.1.0.${{ github.run_number }}
           draft: false
           prerelease: false
-
-      # - name: Bintray Upload
-      #   working-directory: ./env-java
-      #   env:
-      #     JFROG_USER: ${{ secrets.JFROG_USER }}
-      #     JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
-      #   run: |
-      #     ./gradlew bintrayUpload
-
 
   typescript-from-protos:
     runs-on: ubuntu-latest

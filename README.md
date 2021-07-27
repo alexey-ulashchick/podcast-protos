@@ -1,6 +1,29 @@
 # dashboard-protos
 Protos repository for dashboard project.
 
+## Usage
+
+### Java
+Adjust repositories section with reference to jitpack
+```
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+```
+
+Add this to your dependencies
+```
+implementation 'com.github.alexey-ulashchick:dashboard-protos:1.0.46'
+```
+
+### Typescript
+Adjust your `package.json` accordingly:
+```
+"@alexey-ulashchick/dashboard-protos": "^1.0.31",
+```
 
 ## Installation
 
