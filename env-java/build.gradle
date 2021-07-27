@@ -55,43 +55,43 @@ protobuf {
 	}
 }
 
-// def pomConfig = {
-// 	licenses {
-// 		license {
-// 			name 'MIT'
-// 			url 'http://www.opensource.org/licenses/mit-license.php'
-// 			distribution 'repo'
-// 		}
-// 	}
-// 	developers {
-// 		developer {
-// 			id 'alexey-ulashchick'
-// 			name 'Alexey Ulashchick'
-// 			email 'a.ulashchick@gmail.com'
-// 		}
-// 	}
-// 	scm {
-// 		url 'https://github.com/alexey-ulashchick/dashboard-protos'
-// 	}
-// }
+def pomConfig = {
+	licenses {
+		license {
+			name 'MIT'
+			url 'http://www.opensource.org/licenses/mit-license.php'
+			distribution 'repo'
+		}
+	}
+	developers {
+		developer {
+			id 'alexey-ulashchick'
+			name 'Alexey Ulashchick'
+			email 'a.ulashchick@gmail.com'
+		}
+	}
+	scm {
+		url 'https://github.com/alexey-ulashchick/dashboard-protos'
+	}
+}
 
-// publishing {
-// 	publications {
-// 		mavenPublication(MavenPublication) {
-// 			from components.java
-// 			groupId 'com.ulashchick.dashboard'
-// 			artifactId 'protos'
-// 			version = majorVersion + '.' + minorVersion + '.' + patchVersion
-// 			pom.withXml {
-// 				def root = asNode()
-// 				root.appendNode('description', 'Protos library for Dashboard Project')
-// 				root.appendNode('name', 'dashboard-protos')
-// 				root.appendNode('url', 'https://github.com/alexey-ulashchick/dashboard-protos')
-// 				root.children().last() + pomConfig
-// 			}
-// 		}
-// 	}
-// }
+publishing {
+	publications {
+		mavenPublication(MavenPublication) {
+			from components.java
+			groupId 'com.ulashchick.dashboard'
+			artifactId 'protos'
+			version = majorVersion + '.' + minorVersion + '.' + patchVersion
+			pom.withXml {
+				def root = asNode()
+				root.appendNode('description', 'Protos library for Dashboard Project')
+				root.appendNode('name', 'dashboard-protos')
+				root.appendNode('url', 'https://github.com/alexey-ulashchick/dashboard-protos')
+				root.children().last() + pomConfig
+			}
+		}
+	}
+}
 
 // bintray {
 // 	user = System.getenv('JFROG_USER')
