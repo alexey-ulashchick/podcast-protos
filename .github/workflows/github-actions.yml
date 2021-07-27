@@ -18,13 +18,13 @@ jobs:
         working-directory: ./env-java
         run: ./gradlew build
 
-      - name: Bintray Upload
-        working-directory: ./env-java
-        env:
-          JFROG_USER: ${{ secrets.JFROG_USER }}
-          JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
-        run: |
-          ./gradlew bintrayUpload
+      # - name: Bintray Upload
+      #   working-directory: ./env-java
+      #   env:
+      #     JFROG_USER: ${{ secrets.JFROG_USER }}
+      #     JFROG_API_KEY: ${{ secrets.JFROG_API_KEY }}
+      #   run: |
+      #     ./gradlew bintrayUpload
 
 
   typescript-from-protos:
