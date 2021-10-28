@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package protos.com.ulashchick.application.podcast;
+
+option java_multiple_files = true;
+option java_package = "protos.com.ulashchick.application.podcast";
+option java_outer_classname = "PodcastServiceProto";
+
+/** Service for standard user registration and authentication based on JWT. */
+service PodcastService {
+  rpc RecentFeeds(RecentFeedsRequest) returns (RecentFeedsResponse) {}
+}
+
+message RecentFeedsRequest {
+  int32 max = 1;
+}
+
+message RecentFeedsResponse {
+  repeated Feed feeds = 1;
+}
+
+message Feed {
+  int64 id = 1;
+  string title = 2;
+  string description = 3;
+  string image = 4;
+  string language = 5;
+}
+
