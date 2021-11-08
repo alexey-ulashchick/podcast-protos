@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package protos.com.ulashchick.application.podcast;
+package protos.com.ulashchick.podcast.podcast;
 
 option java_multiple_files = true;
-option java_package = "protos.com.ulashchick.application.podcast";
+option java_package = "protos.com.ulashchick.podcast.podcast";
 option java_outer_classname = "PodcastServiceProto";
 
 /** Service for standard user registration and authentication based on JWT. */
