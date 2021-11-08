@@ -1,21 +1,21 @@
 {
-  "name": "@alexey-ulashchick/dashboard-protos",
+  "name": "@alexey-ulashchick/podcast-protos",
   "version": "1.0.0",
-  "description": "Protos repository for dashboard project.",
+  "description": "Protos repository for podcast project.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexey-ulashchick/dashboard-protos.git"
+    "url": "git+https://github.com/alexey-ulashchick/podcast-protos.git"
   },
   "author": "Alexey Ulashchick",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexey-ulashchick/dashboard-protos/issues"
+    "url": "https://github.com/alexey-ulashchick/podcast-protos/issues"
   },
-  "homepage": "https://github.com/alexey-ulashchick/dashboard-protos#readme",
+  "homepage": "https://github.com/alexey-ulashchick/podcast-protos#readme",
   "devDependencies": {
     "ts-protoc-gen": "^0.14.0"
   },

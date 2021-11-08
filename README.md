@@ -1,5 +1,5 @@
-# dashboard-protos
-Protos repository for dashboard project.
+# podcast-protos
+Protos repository for podcast project.
 
 ## Usage
 
@@ -16,13 +16,13 @@ repositories {
 
 Add this to your dependencies
 ```
-implementation 'com.github.alexey-ulashchick:dashboard-protos:1.0.46'
+implementation 'com.github.alexey-ulashchick:podcast-protos:1.0.46'
 ```
 
 ### Typescript
 Adjust your `package.json` accordingly:
 ```
-"@alexey-ulashchick/dashboard-protos": "^1.0.31",
+"@alexey-ulashchick/podcast-protos": "^1.0.31",
 ```
 
 ## Installation

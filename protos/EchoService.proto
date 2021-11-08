@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package protos.com.ulashchick.dashboard.echo;
+package protos.com.ulashchick.podcast.echo;
 
 option java_multiple_files = true;
-option java_package = "protos.com.ulashchick.dashboard.echo";
+option java_package = "protos.com.ulashchick.podcast.echo";
 option java_outer_classname = "EchoServiceProto";
 
 /** Echo Service for testing. */
