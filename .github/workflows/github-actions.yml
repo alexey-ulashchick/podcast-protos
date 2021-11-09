@@ -1,7 +1,10 @@
-name: build
+name: Compile protos and Deploy
 on:
-  - push
-  - workflow_dispatch
+  push:
+    branches:
+      - main
+  workflow_dispatch
+
 jobs:
 
   # We do not need to build protos here during action execution. We just add release tag which will be picked up later by https://jitpack.io.
