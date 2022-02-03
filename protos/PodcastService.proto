@@ -47,7 +47,7 @@ message UnsubsribeMeFromResponse {
   bool success = 1;
 }
 
-message ListMySubscriptions {
+message ListMySubscriptionsRequest {
 }
 
 message ListMySubscriptionsResponse {
