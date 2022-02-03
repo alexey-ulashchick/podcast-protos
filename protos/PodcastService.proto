@@ -9,6 +9,10 @@ option java_outer_classname = "PodcastServiceProto";
 /** Service for standard user registration and authentication based on JWT. */
 service PodcastService {
   rpc RecentFeeds(RecentFeedsRequest) returns (RecentFeedsResponse) {}
+  rpc Search(SearchRequest) returns (SearchResponse) {}
+  rpc SubscribeMeTo(SubscribeMeToRequest) returns (SubscribeMeToResponse) {}
+  rpc UnsubsribeMeFrom(UnsubsribeMeFromRequest) returns (UnsubsribeMeFromResponse) {}
+  rpc ListMySubscriptions(ListMySubscriptionsRequest) returns (ListMySubscriptionsResponse) {}
 }
 
 message RecentFeedsRequest {
@@ -16,6 +20,37 @@ message RecentFeedsRequest {
 }
 
 message RecentFeedsResponse {
+  repeated Feed feeds = 1;
+}
+
+message SearchRequest {
+  string query = 1;
+}
+
+message SearchResponse {
+  repeated Feed feeds = 1;
+}
+
+message SubscribeMeToRequest {
+  int64 feed_id = 1;
+}
+
+message SubscribeMeToResponse {
+  bool success = 1;
+}
+
+message UnsubsribeMeFromRequest {
+  int64 feed_id = 1;
+}
+
+message UnsubsribeMeFromResponse {
+  bool success = 1;
+}
+
+message ListMySubscriptions {
+}
+
+message ListMySubscriptionsResponse {
   repeated Feed feeds = 1;
 }
 
