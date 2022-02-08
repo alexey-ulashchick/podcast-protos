@@ -45,15 +45,28 @@ $ sudo apt-get install -y nodejs
 
 ### Protobuf Compiler
 Check for latest release https://github.com/protocolbuffers/protobuf/releases.
-In my case it's 3.17.3.
+In my case it's 3.19.4 and my platform is MacOS.
 ```
 $ PB_REL="https://github.com/protocolbuffers/protobuf/releases"
 
-$ curl -LO $PB_REL/download/v3.17.3/protoc-3.17.3-linux-x86_64.zip
+$ curl -LO $PB_REL/download/v3.19.4/protoc-3.19.4-osx-x86_64.zip
 
-$ unzip protoc-3.15.8-linux-x86_64.zip -d $HOME/.local
+$ unzip protoc-3.19.4-osx-x86_64.zip -d $HOME/.local
 
 $ export PATH="$PATH:$HOME/.local/bin"
+```
+
+### Code Generator Plugin
+Check for latest release https://github.com/grpc/grpc-web/releases.
+In my case it's 1.3.1 and my platform is MacOS.
+```
+$ PB_REL="https://github.com/grpc/grpc-web/releases"
+
+$ curl -LO $PB_REL/download/1.3.1/protoc-gen-grpc-web-1.3.1-darwin-x86_64
+
+$ mv protoc-gen-grpc-web-1.3.1-darwin-x86_64 $HOME/.local/bin/protoc-gen-grpc-web
+
+$ chmod +x $HOME/.local/bin/protoc-gen-grpc-web
 ```
 
 ### Generate protos
