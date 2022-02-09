@@ -59,7 +59,7 @@ jobs:
           chmod +x /usr/local/bin/protoc-gen-grpc-web
           protoc \
             ./protos/**  \
-            --js_out="import_style=commonjs:env-nodejs" \
+            --js_out="import_style=commonjs,binary:env-nodejs" \
             --grpc-web_out="import_style=typescript,mode=grpcweb:env-nodejs"
 
       - name: Publish
