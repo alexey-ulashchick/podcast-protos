@@ -66,7 +66,9 @@ jobs:
         working-directory: ./env-nodejs
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access=public --loglevel verbose
+        run: |
+          npm run build
+          npm publish --access=public --loglevel verbose
 
 
 
